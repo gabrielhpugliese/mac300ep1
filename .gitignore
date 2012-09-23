@@ -1,3 +1,5 @@
 wavs/
 .pydevproject
 .project
+*.pyc
+*.midi
