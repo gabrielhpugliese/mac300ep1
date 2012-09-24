@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 34
+/svn/!svn/ver/9/trunk/src/midiutil
+END
+__init__.py
+K 25
+svn:wc:ra_dav:version-url
+V 46
+/svn/!svn/ver/2/trunk/src/midiutil/__init__.py
+END
+MidiFile.py
+K 25
+svn:wc:ra_dav:version-url
+V 46
+/svn/!svn/ver/2/trunk/src/midiutil/MidiFile.py
+END
+MidiFile3.py
+K 25
+svn:wc:ra_dav:version-url
+V 47
+/svn/!svn/ver/9/trunk/src/midiutil/MidiFile3.py
+END

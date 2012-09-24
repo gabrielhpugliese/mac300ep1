@@ -10,8 +10,10 @@ def time_measure(func):
         resp = func(*args, **kwargs)
 
         t = time.clock() - t
-        print 'Tempo levado para conclusao do metodo: %s' % str(t)
-
+        func_name = func.__name__
+        print 'Tempo levado para conclusao do metodo %s: %s' % (func_name,
+                                                                str(t))
         return resp
+
     return wrap
 

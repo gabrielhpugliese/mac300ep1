@@ -1,0 +1,22 @@
+Gabriel Henrique Pugliese
+nUSP 5639061
+
+EP1 MAC0300
+===========================
+
+1) Instalacao
+
+Este EP foi testado em Python2.7 com as seguintes bibliotecas de terceiros:
+- matplotlib
+- numpy
+- scipy
+- midiutil
+Para instalar rode: python setup.py install
+
+A instalacao desses pacotes necessita dos pacotes do linux:
+- python-dev
+- libfreetype6-dev
+- libpng-dev
+Se estiver no linux, recomendo rodar: apt-get install python-dev libfreetype6-dev libpng-dev
+
+A biblioteca midiutil ja esta dentro do projeto.
