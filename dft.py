@@ -34,31 +34,29 @@ def plot_freq(n, frequency, a_fft):
 
 
 def create_midi(frequency):
-    MyMIDI = MIDIFile(1)
+    my_midi = MIDIFile(1)
     track = 0
     channel = 0
-    pitch = 69 + 12 * log(frequency[len(frequency) - 1] / 440, 2)
+    pitch = 69 + 12 * log(max(frequency) / 440, 2)
+
     time = 0
     duration = 1
     volume = 100
 
-    MyMIDI.addNote(track, channel, pitch, time, duration, volume)
+    my_midi.addTempo(track, time, 120)
+    my_midi.addNote(track, channel, pitch, time, duration, volume)
 
-    binfile = open("output.mid", 'wb')
-    MyMIDI.writeFile(binfile)
-    binfile.close()
+    return my_midi
 
 
 def dft(x):
     ''' Algoritmo DFT ingenuo '''
     N = len(x)
     X = zeros(N, dtype=complex)
-    E = e
-    P = pi
 
-    for k in xrange(N):
-        for n in xrange(N):
-            X[k] += x[n] * E ** (-1 * 2j * P * k * n / N)
+    for i in xrange(N):
+        for j in xrange(N):
+            X[i] += x[j] * e ** (-1 * 2j * pi * i * j / N)
 
     return X
 
@@ -80,11 +78,13 @@ def run(filename):
     plot_freq(len(wav_array), frequency, fft_resp)
     savefig('freq_fft.png')
 
-    create_midi(frequency)
+    my_midi = create_midi(frequency)
+    write_file = filename[:-4] + '.midi'
+    binfile = open(write_file, 'wb')
+    my_midi.writeFile(binfile)
+    binfile.close()
+
 #    dft_resp = time_measure(dft)(wav_array)
-#
-#    write_file = filename[:-4] + '.midi'
-#    write(write_file, rate, resp)
 
 
 if __name__ == '__main__':
